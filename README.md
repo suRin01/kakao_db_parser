@@ -1,6 +1,7 @@
 transpiled from python code, kakaodecrypt(https://github.com/jiru/kakaodecrypt).
 
-
+### dependency
+use crypto, included in node's default libraries
 
 
 # How to use this repo?
