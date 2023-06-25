@@ -1,3 +1,8 @@
+transpiled from python code, kakaodecrypt(https://github.com/jiru/kakaodecrypt).
+
+
+
+
 # How to use this repo?
 
 
@@ -48,3 +53,14 @@ done
 
 
 This project is licensed under the terms of the MIT license.
+
+
+
+
+
+#### see also:
+
+
+
+original code: python kakaotalk db decrypt
+https://github.com/jiru/kakaodecrypt
