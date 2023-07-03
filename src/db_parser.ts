@@ -131,16 +131,18 @@ export const decrypt = (textData: string, userId: string, prefixIndex:number = 3
 
     let key = keyCache[userId];
     if(key === undefined){
-        console.log(`key for user ${userId} not found, generate key.`)
         const salt = genSalt(prefixes[prefixIndex], userId);
         key = deriveKey(gen_password, salt, 2, 32);
         keyCache[userId] = key;
     }else{
-        console.log(`key for user ${userId} found, skip generating key.`)
     }
 
     const decipher = Crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), Buffer.from(iv));
-    const decrypted = decipher.update(textData, 'base64', 'utf8') + decipher.final('utf8')
-
-    return decrypted
+    const decrypted_temp = decipher.update(textData, 'base64', 'utf8')
+    try{
+        const decrypted_final = decipher.final('utf8')
+        return decrypted_temp+decrypted_final
+    }catch{
+        return decrypted_temp
+    }   
 }
